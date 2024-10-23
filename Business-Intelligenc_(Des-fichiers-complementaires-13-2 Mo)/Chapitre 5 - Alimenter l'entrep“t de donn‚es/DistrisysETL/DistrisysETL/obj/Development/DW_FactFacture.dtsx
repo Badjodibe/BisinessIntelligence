@@ -1,0 +1,2437 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/28/2010 7:30:48 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SERVER1"
+  DTS:CreatorName="CONTOSO\Administrateur"
+  DTS:DTSID="{E15704E4-9230-4BC6-896B-86615EE5FA64}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DW_FactFacture"
+  DTS:PackageType="5"
+  DTS:VersionBuild="19"
+  DTS:VersionGUID="{2F8A7FF7-226D-4D8E-8F3F-F7902A5D81DC}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{663AED43-6E8A-4B48-A2C6-5A33C7AF7599}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Chargement de DistrisysDW FactFacture et FactFactureEntete"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client"
+              componentClassID="{5B201335-B360-485C-BB93-75C34E09B3D3}"
+              contactInfo="Agrégation;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;3"
+              description="Agrège et regroupe des valeurs dans un dataset."
+              name="Agrégation par Datefacturation, par Site et par Client"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre approximatif de clés GROUP BY produites par l'agrégation. Basse indique 500 000 valeurs de clés, Moyenne indique 5 millions de valeurs de clés et Haute indique plus de 25 millions de valeurs de clés. Non spécifié indique qu'aucune valeur KeyScale n'est utilisée."
+                  name="KeyScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Spécifie le nombre exact de clés GROUP BY produites par l'agrégation. Si une valeur KeyScale est spécifiée, la valeur dans Keys est prioritaire."
+                  name="Keys" />
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre approximatif de valeurs distinctes totalisé distinctement par l'agrégation dans une colonne. Basse indique 500 000 valeurs de clés, Moyenne indique 5 millions de valeurs de clés et Haute indique plus de 25 millions de valeurs de clés. Non spécifié indique qu'aucune valeur CountDistinctScale n'est utilisée."
+                  name="CountDistinctScale"
+                  typeConverter="KeyScaleType">0</property>
+                <property
+                  dataType="System.Null"
+                  description="Spécifie le nombre exact de valeurs distinctes totalisées distinctement par l'agrégation dans une colonne. Si une valeur CountDistinctScale est spécifiée, la valeur dans CountDistinctKeys est prioritaire."
+                  name="CountDistinctKeys" />
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage possible d'extension de la mémoire pendant l'agrégation. Les valeurs valides vont de 1 à 100."
+                  name="AutoExtendFactor">25</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Inputs[Entrée d'agrégation 1]"
+                  name="Entrée d'agrégation 1">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Inputs[Entrée d'agrégation 1].Columns[DateFacturation_FK]"
+                      cachedDataType="i4"
+                      cachedName="DateFacturation_FK"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Outputs[Sortie de recherche avec correspondance].Columns[DateFacturation_FK]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Inputs[Entrée d'agrégation 1].Columns[Site_FK]"
+                      cachedDataType="i4"
+                      cachedName="Site_FK"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Outputs[Sortie de recherche avec correspondance].Columns[Site_FK]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Inputs[Entrée d'agrégation 1].Columns[Client_FK]"
+                      cachedDataType="i4"
+                      cachedName="Client_FK"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Outputs[Sortie de recherche avec correspondance].Columns[Client_FK]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Inputs[Entrée d'agrégation 1].Columns[ProduitCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ProduitCode"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[ProduitCode]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Outputs[Sortie d'agrégation 1]"
+                  name="Sortie d'agrégation 1">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie le nombre approximatif de clés GROUP BY produites par l'agrégation. Basse indique 500 000 valeurs de clés, Moyenne indique 5 millions de valeurs de clés et Haute indique plus de 25 millions de valeurs de clés. Non spécifié indique qu'aucune valeur KeyScale n'est utilisée."
+                      name="KeyScale"
+                      typeConverter="KeyScaleType">0</property>
+                    <property
+                      dataType="System.Null"
+                      description="Spécifie le nombre exact de clés GROUP BY produites par l'agrégation. Si une valeur KeyScale est spécifiée, la valeur dans Keys est prioritaire."
+                      name="Keys" />
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Outputs[Sortie d'agrégation 1].Columns[DateFacturation_FK]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Outputs[Sortie d'agrégation 1].Columns[DateFacturation_FK]"
+                      name="DateFacturation_FK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'ID de la colonne d'entrée utilisé dans l'agrégation."
+                          name="AggregationColumnId">#{Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Outputs[Sortie de recherche avec correspondance].Columns[DateFacturation_FK]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie le type d'agrégation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indique si la colonne nécessite un traitement spécial, au cas où elle contiendrait des données dépassant la taille limite ou nécessiterait une précision au-delà du type de données float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison de chaînes."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Outputs[Sortie d'agrégation 1].Columns[Site_FK]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Outputs[Sortie d'agrégation 1].Columns[Site_FK]"
+                      name="Site_FK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'ID de la colonne d'entrée utilisé dans l'agrégation."
+                          name="AggregationColumnId">#{Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Outputs[Sortie de recherche avec correspondance].Columns[Site_FK]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie le type d'agrégation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indique si la colonne nécessite un traitement spécial, au cas où elle contiendrait des données dépassant la taille limite ou nécessiterait une précision au-delà du type de données float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison de chaînes."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Outputs[Sortie d'agrégation 1].Columns[Client_FK]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Outputs[Sortie d'agrégation 1].Columns[Client_FK]"
+                      name="Client_FK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'ID de la colonne d'entrée utilisé dans l'agrégation."
+                          name="AggregationColumnId">#{Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Outputs[Sortie de recherche avec correspondance].Columns[Client_FK]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie le type d'agrégation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indique si la colonne nécessite un traitement spécial, au cas où elle contiendrait des données dépassant la taille limite ou nécessiterait une précision au-delà du type de données float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison de chaînes."
+                          name="AggregationComparisonFlags">0</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Outputs[Sortie d'agrégation 1].Columns[NbArticleFacture]"
+                      dataType="ui4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Outputs[Sortie d'agrégation 1].Columns[NbArticleFacture]"
+                      name="NbArticleFacture">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'ID de la colonne d'entrée utilisé dans l'agrégation."
+                          name="AggregationColumnId">#{Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[ProduitCode]}</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie le type d'agrégation."
+                          name="AggregationType"
+                          typeConverter="AggregationType">3</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Indique si la colonne nécessite un traitement spécial, au cas où elle contiendrait des données dépassant la taille limite ou nécessiterait une précision au-delà du type de données float."
+                          name="IsBig">1</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison de chaînes."
+                          name="AggregationComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie le nombre approximatif de valeurs distinctes totalisé distinctement par l'agrégation dans une colonne. Basse indique 500 000 valeurs de clés, Moyenne indique 5 millions de valeurs de clés et Haute indique plus de 25 millions de valeurs de clés. Non spécifié indique qu'aucune valeur CountDistinctScale n'est utilisée."
+                          name="CountDistinctScale">0</property>
+                        <property
+                          dataType="System.UInt32"
+                          description="Spécifie le nombre exact de valeurs distinctes totalisées distinctement par l'agrégation dans une colonne. Si une valeur CountDistinctScale est spécifiée, la valeur dans CountDistinctKeys est prioritaire."
+                          name="CountDistinctKeys">0</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Met à jour les valeurs de colonne au moyen d'expressions."
+              name="Calculer la Marge et le PrixCatalogue"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Inputs[Entrée de colonne dérivée].Columns[Quantite]"
+                      cachedDataType="i4"
+                      cachedName="Quantite"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[Quantite]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Inputs[Entrée de colonne dérivée].Columns[PrixUnitaireCatalogue]"
+                      cachedDataType="numeric"
+                      cachedName="PrixUnitaireCatalogue"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[PrixUnitaireCatalogue]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Inputs[Entrée de colonne dérivée].Columns[PrixTotalHT]"
+                      cachedDataType="numeric"
+                      cachedName="PrixTotalHT"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[PrixTotalHT]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Inputs[Entrée de colonne dérivée].Columns[CoutDirectMatiere]"
+                      cachedDataType="numeric"
+                      cachedName="CoutDirectMatiere"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[CoutDirectMatiere]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Inputs[Entrée de colonne dérivée].Columns[CoutDirectMainOeuvre]"
+                      cachedDataType="numeric"
+                      cachedName="CoutDirectMainOeuvre"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[CoutDirectMainOeuvre]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Inputs[Entrée de colonne dérivée].Columns[CoutIndirect]"
+                      cachedDataType="numeric"
+                      cachedName="CoutIndirect"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[CoutIndirect]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Outputs[Sortie de colonne dérivée].Columns[Marge]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Outputs[Sortie de colonne dérivée].Columns[Marge]"
+                      name="Marge"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_NUMERIC,9,2)(#{Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[PrixTotalHT]} - #{Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[CoutDirectMatiere]} - #{Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[CoutDirectMainOeuvre]} - #{Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[CoutIndirect]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_NUMERIC,9,2)(PrixTotalHT - CoutDirectMatiere - CoutDirectMainOeuvre - CoutIndirect)</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Outputs[Sortie de colonne dérivée].Columns[PrixCatalogue]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Outputs[Sortie de colonne dérivée].Columns[PrixCatalogue]"
+                      name="PrixCatalogue"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">(DT_NUMERIC,9,2)(#{Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[PrixUnitaireCatalogue]} * #{Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[Quantite]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">(DT_NUMERIC,9,2)(PrixUnitaireCatalogue * Quantite)</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Chargement de DistrisysDW FactFacture"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande. Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[FactFacture]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données de caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données. Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Connections[OleDbConnection]"
+                  connectionManagerID="{F694C42B-B8A7-4799-8064-6EDDBCA19242}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DistrisysDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].Columns[NumFacture]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="6"
+                      cachedName="NumFacture"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[NumFacture]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[NumFacture]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].Columns[Quantite]"
+                      cachedDataType="i4"
+                      cachedName="Quantite"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[Quantite]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[Quantite]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].Columns[CoutDirectMatiere]"
+                      cachedDataType="numeric"
+                      cachedName="CoutDirectMatiere"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[CoutDirectMatiere]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[CoutDirectMatiere]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].Columns[CoutDirectMainOeuvre]"
+                      cachedDataType="numeric"
+                      cachedName="CoutDirectMainOeuvre"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[CoutDirectMainOeuvre]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[CoutDirectMainOeuvre]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].Columns[CoutIndirect]"
+                      cachedDataType="numeric"
+                      cachedName="CoutIndirect"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[CoutIndirect]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[CoutIndirect]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].Columns[Site_FK]"
+                      cachedDataType="i4"
+                      cachedName="Site_FK"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[Site_FK]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Outputs[Sortie de recherche avec correspondance].Columns[Site_FK]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].Columns[Client_FK]"
+                      cachedDataType="i4"
+                      cachedName="Client_FK"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[Client_FK]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Outputs[Sortie de recherche avec correspondance].Columns[Client_FK]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].Columns[Produit_FK]"
+                      cachedDataType="i4"
+                      cachedName="Produit_FK"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[Produit_FK]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Outputs[Sortie de recherche avec correspondance].Columns[Produit_FK]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].Columns[DateFacturation_FK]"
+                      cachedDataType="i4"
+                      cachedName="DateFacturation_FK"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[DateFacturation_FK]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Outputs[Sortie de recherche avec correspondance].Columns[DateFacturation_FK]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].Columns[PrixTotalHT]"
+                      cachedDataType="numeric"
+                      cachedName="PrixTotalHT"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[CA]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[PrixTotalHT]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].Columns[RemiseHT]"
+                      cachedDataType="numeric"
+                      cachedName="RemiseHT"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[Remise]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[RemiseHT]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].Columns[PrixCatalogue]"
+                      cachedDataType="numeric"
+                      cachedName="PrixCatalogue"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[PrixCatalogue]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Outputs[Sortie de colonne dérivée].Columns[PrixCatalogue]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].Columns[Marge]"
+                      cachedDataType="numeric"
+                      cachedName="Marge"
+                      cachedPrecision="9"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[Marge]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Outputs[Sortie de colonne dérivée].Columns[Marge]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[DateFacturation_FK]"
+                      dataType="i4"
+                      name="DateFacturation_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[Site_FK]"
+                      dataType="i4"
+                      name="Site_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[Produit_FK]"
+                      dataType="i4"
+                      name="Produit_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[Client_FK]"
+                      dataType="i4"
+                      name="Client_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[PrixCatalogue]"
+                      dataType="numeric"
+                      name="PrixCatalogue"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[Remise]"
+                      dataType="numeric"
+                      name="Remise"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[CA]"
+                      dataType="numeric"
+                      name="CA"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[Marge]"
+                      dataType="numeric"
+                      name="Marge"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[CoutDirectMatiere]"
+                      dataType="numeric"
+                      name="CoutDirectMatiere"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[CoutDirectMainOeuvre]"
+                      dataType="numeric"
+                      name="CoutDirectMainOeuvre"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[CoutIndirect]"
+                      dataType="numeric"
+                      name="CoutIndirect"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[Quantite]"
+                      dataType="numeric"
+                      name="Quantite"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[NumFacture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="NumFacture" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB].ExternalColumns[AuditFluxAjout_FK]"
+                      dataType="i4"
+                      name="AuditFluxAjout_FK" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Chargement de DistrisysDW FactFactureEntete"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande. Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[FactFactureEntete]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données de caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données. Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Connections[OleDbConnection]"
+                  connectionManagerID="{F694C42B-B8A7-4799-8064-6EDDBCA19242}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DistrisysDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Inputs[Entrée de destination OLE DB].Columns[DateFacturation_FK]"
+                      cachedDataType="i4"
+                      cachedName="DateFacturation_FK"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Inputs[Entrée de destination OLE DB].ExternalColumns[DateFacturation_FK]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Outputs[Sortie d'agrégation 1].Columns[DateFacturation_FK]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Inputs[Entrée de destination OLE DB].Columns[Site_FK]"
+                      cachedDataType="i4"
+                      cachedName="Site_FK"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Inputs[Entrée de destination OLE DB].ExternalColumns[Site_FK]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Outputs[Sortie d'agrégation 1].Columns[Site_FK]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Inputs[Entrée de destination OLE DB].Columns[Client_FK]"
+                      cachedDataType="i4"
+                      cachedName="Client_FK"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Inputs[Entrée de destination OLE DB].ExternalColumns[Client_FK]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Outputs[Sortie d'agrégation 1].Columns[Client_FK]" />
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Inputs[Entrée de destination OLE DB].Columns[NbArticleFacture]"
+                      cachedDataType="ui4"
+                      cachedName="NbArticleFacture"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Inputs[Entrée de destination OLE DB].ExternalColumns[NbArticleFacture]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Outputs[Sortie d'agrégation 1].Columns[NbArticleFacture]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Inputs[Entrée de destination OLE DB].ExternalColumns[DateFacturation_FK]"
+                      dataType="i4"
+                      name="DateFacturation_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Inputs[Entrée de destination OLE DB].ExternalColumns[Site_FK]"
+                      dataType="i4"
+                      name="Site_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Inputs[Entrée de destination OLE DB].ExternalColumns[Client_FK]"
+                      dataType="i4"
+                      name="Client_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Inputs[Entrée de destination OLE DB].ExternalColumns[NbArticleFacture]"
+                      dataType="i4"
+                      name="NbArticleFacture" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Inputs[Entrée de destination OLE DB].ExternalColumns[NumFacture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="NumFacture" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Inputs[Entrée de destination OLE DB].ExternalColumns[AuditFluxAjout_FK]"
+                      dataType="i4"
+                      name="AuditFluxAjout_FK" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Extraction des lignes de Distrisys SA Facture"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande. Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Facture]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données de caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Connections[OleDbConnection]"
+                  connectionManagerID="{ED2C929D-4F5E-4D0C-AE54-2117EEBDE057}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DistrisysSA]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[SiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[SiteCode]"
+                      length="10"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[SiteCode]"
+                      name="SiteCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[ProduitCode]"
+                      length="10"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[ProduitCode]"
+                      name="ProduitCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[ClientCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[ClientCode]"
+                      length="10"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[ClientCode]"
+                      name="ClientCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[NumFacture]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[NumFacture]"
+                      length="6"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[NumFacture]"
+                      name="NumFacture"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[DateFacturation]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[DateFacturation]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[DateFacturation]"
+                      name="DateFacturation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[CommandeFacture]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[CommandeFacture]"
+                      length="1"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[CommandeFacture]"
+                      name="CommandeFacture"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[Quantite]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[Quantite]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[Quantite]"
+                      name="Quantite"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[PrixUnitaireCatalogue]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[PrixUnitaireCatalogue]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[PrixUnitaireCatalogue]"
+                      name="PrixUnitaireCatalogue"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[PrixUnitaireHT]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[PrixUnitaireHT]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[PrixUnitaireHT]"
+                      name="PrixUnitaireHT"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[PrixTotalHT]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[PrixTotalHT]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[PrixTotalHT]"
+                      name="PrixTotalHT"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[RemiseHT]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[RemiseHT]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[RemiseHT]"
+                      name="RemiseHT"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[CoutDirectMatiere]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[CoutDirectMatiere]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[CoutDirectMatiere]"
+                      name="CoutDirectMatiere"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[CoutDirectMainOeuvre]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[CoutDirectMainOeuvre]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[CoutDirectMainOeuvre]"
+                      name="CoutDirectMainOeuvre"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[CoutIndirect]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[CoutIndirect]"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[CoutIndirect]"
+                      name="CoutIndirect"
+                      precision="9"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[FactureID]"
+                      dataType="i4"
+                      name="FactureID" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[SiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SiteCode" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ProduitCode" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[ClientCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ClientCode" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[NumFacture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      name="NumFacture" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[DateFacturation]"
+                      dataType="dbTimeStamp"
+                      name="DateFacturation" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[CommandeFacture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      name="CommandeFacture" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[Quantite]"
+                      dataType="i4"
+                      name="Quantite" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[PrixUnitaireCatalogue]"
+                      dataType="numeric"
+                      name="PrixUnitaireCatalogue"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[PrixUnitaireHT]"
+                      dataType="numeric"
+                      name="PrixUnitaireHT"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[PrixTotalHT]"
+                      dataType="numeric"
+                      name="PrixTotalHT"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[RemiseHT]"
+                      dataType="numeric"
+                      name="RemiseHT"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[CoutDirectMatiere]"
+                      dataType="numeric"
+                      name="CoutDirectMatiere"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[CoutDirectMainOeuvre]"
+                      dataType="numeric"
+                      name="CoutDirectMainOeuvre"
+                      precision="9"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].ExternalColumns[CoutIndirect]"
+                      dataType="numeric"
+                      name="CoutIndirect"
+                      precision="9"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[SiteCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[SiteCode]"
+                      name="SiteCode" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[ProduitCode]"
+                      name="ProduitCode" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[ClientCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[ClientCode]"
+                      name="ClientCode" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[NumFacture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="6"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[NumFacture]"
+                      name="NumFacture" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[DateFacturation]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[DateFacturation]"
+                      name="DateFacturation" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[CommandeFacture]"
+                      codePage="1252"
+                      dataType="str"
+                      length="1"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[CommandeFacture]"
+                      name="CommandeFacture" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[Quantite]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[Quantite]"
+                      name="Quantite" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[PrixUnitaireCatalogue]"
+                      dataType="numeric"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[PrixUnitaireCatalogue]"
+                      name="PrixUnitaireCatalogue"
+                      precision="9"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[PrixUnitaireHT]"
+                      dataType="numeric"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[PrixUnitaireHT]"
+                      name="PrixUnitaireHT"
+                      precision="9"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[PrixTotalHT]"
+                      dataType="numeric"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[PrixTotalHT]"
+                      name="PrixTotalHT"
+                      precision="9"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[RemiseHT]"
+                      dataType="numeric"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[RemiseHT]"
+                      name="RemiseHT"
+                      precision="9"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[CoutDirectMatiere]"
+                      dataType="numeric"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[CoutDirectMatiere]"
+                      name="CoutDirectMatiere"
+                      precision="9"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[CoutDirectMainOeuvre]"
+                      dataType="numeric"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[CoutDirectMainOeuvre]"
+                      name="CoutDirectMainOeuvre"
+                      precision="9"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[CoutIndirect]"
+                      dataType="numeric"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[CoutIndirect]"
+                      name="CoutIndirect"
+                      precision="9"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Multidiffusion"
+              componentClassID="{EC139FBC-694E-490B-8EA7-35690FB0F445}"
+              contactInfo="Multidiffusion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Crée des copies d'un dataset."
+              name="Multidiffusion">
+              <inputs>
+                <input
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Multidiffusion.Inputs[Multidiffusion entrée 1]"
+                  name="Multidiffusion entrée 1">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Multidiffusion.Outputs[Sortie de multidiffusion 3]"
+                  deleteOutputOnPathDetached="true"
+                  name="Sortie de multidiffusion 3"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Multidiffusion.Outputs[Sortie de multidiffusion 1]"
+                  deleteOutputOnPathDetached="true"
+                  name="Sortie de multidiffusion 1"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Multidiffusion.Outputs[Sortie de multidiffusion 2]"
+                  dangling="true"
+                  deleteOutputOnPathDetached="true"
+                  name="Sortie de multidiffusion 2"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Multidiffusion.Inputs[Multidiffusion entrée 1]">
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Nettoyage des chaines de caractères"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Met à jour les valeurs de colonne au moyen d'expressions."
+              name="Nettoyage des chaines de caractères"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Nettoyage des chaines de caractères.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Nettoyage des chaines de caractères.Inputs[Entrée de colonne dérivée].Columns[SiteCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SiteCode"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[SiteCode]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[TRIM](#{Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[SiteCode]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(SiteCode)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Nettoyage des chaines de caractères.Inputs[Entrée de colonne dérivée].Columns[ProduitCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ProduitCode"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[ProduitCode]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[TRIM](#{Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[ProduitCode]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(ProduitCode)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Nettoyage des chaines de caractères.Inputs[Entrée de colonne dérivée].Columns[ClientCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ClientCode"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[ClientCode]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[TRIM](#{Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[ClientCode]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(ClientCode)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Nettoyage des chaines de caractères.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Nettoyage des chaines de caractères.Inputs[Entrée de colonne dérivée]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Nettoyage des chaines de caractères.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Nettoyage des chaines de caractères.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Nettoyage des chaines de caractères.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Nettoyage des chaines de caractères.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Nettoyage des chaines de caractères.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Nettoyage des chaines de caractères.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;5"
+              description="Recherche des valeurs dans un dataset de référence en utilisant la correspondance exacte."
+              name="Recherche Client_FK"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DimClient]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DimClient]) [refTable]
+where [refTable].[ClientCode] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Client_PK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="GeographieClient_FK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ClientCode" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Client" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TypeClient" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SegmentationClient" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de lignage se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[ClientCode]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Connections[OleDbConnection]"
+                  connectionManagerID="{F694C42B-B8A7-4799-8064-6EDDBCA19242}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DistrisysDW]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Inputs[Entrée de recherche].Columns[ClientCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ClientCode"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[ClientCode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">ClientCode</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Outputs[Sortie de recherche avec correspondance].Columns[Client_FK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Outputs[Sortie de recherche avec correspondance].Columns[Client_FK]"
+                      name="Client_FK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">Client_PK</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;5"
+              description="Recherche des valeurs dans un dataset de référence en utilisant la correspondance exacte."
+              name="Recherche DateFacturation_FK"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DimTemps]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DimTemps]) [refTable]
+where [refTable].[Date] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Temps_PK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Date" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="Jour" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="AnneeCode" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AnneeDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="AnneeNom" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SemestreCode" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SemestreDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SemestreNom" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TrimestreCode" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TrimestreDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TrimestreNom" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="MoisCode" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MoisDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MoisNom" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SemaineCode" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SemaineDate" dataType="DT_DBTIMESTAMP" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SemaineNom" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="JourDelannée" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="JourDelannéeNom" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="JourDuSemestre" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="JourDuSemestreNom" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="JourDuTrimestre" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="JourDuTrimestreNom" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="JourDuMois" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="JourDuMoisNom" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="JourDeLaSemaine" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="JourDeLaSemaineNom" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SemaineDelannée" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SemaineDelannéeNom" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MoisDelannée" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MoisDelannéeNom" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MoisDuSemestre" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MoisDuSemestreNom" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MoisDuTrimestre" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="MoisDuTrimestreNom" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TrimestreDelannée" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TrimestreDelannéeNom" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TrimestreDuSemestre" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="TrimestreDuSemestreNom" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SemestreDelannée" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SemestreDelannéeNom" dataType="DT_WSTR" length="50" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de lignage se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[DateFacturation]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Connections[OleDbConnection]"
+                  connectionManagerID="{F694C42B-B8A7-4799-8064-6EDDBCA19242}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DistrisysDW]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Inputs[Entrée de recherche].Columns[DateFacturation]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="DateFacturation"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[DateFacturation]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">Date</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Outputs[Sortie de recherche avec correspondance].Columns[DateFacturation_FK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Outputs[Sortie de recherche avec correspondance].Columns[DateFacturation_FK]"
+                      name="DateFacturation_FK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">Temps_PK</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;5"
+              description="Recherche des valeurs dans un dataset de référence en utilisant la correspondance exacte."
+              name="Recherche Produit_FK"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DimProduit]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DimProduit]) [refTable]
+where [refTable].[ProduitCode] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Produit_PK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ProduitCode" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Produit" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SousFamilleCode" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SousFamille" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="FamilleCode" dataType="DT_STR" length="10" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Famille" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Valide" dataType="DT_BOOL" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de lignage se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[ProduitCode]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Connections[OleDbConnection]"
+                  connectionManagerID="{F694C42B-B8A7-4799-8064-6EDDBCA19242}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DistrisysDW]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Inputs[Entrée de recherche].Columns[ProduitCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ProduitCode"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[ProduitCode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">ProduitCode</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Outputs[Sortie de recherche avec correspondance].Columns[Produit_FK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Outputs[Sortie de recherche avec correspondance].Columns[Produit_FK]"
+                      name="Produit_FK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">Produit_PK</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              contactInfo="Recherche;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;5"
+              description="Recherche des valeurs dans un dataset de référence en utilisant la correspondance exacte."
+              name="Recherche Site_FK"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Spécifie l'instruction SQL qui génère la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from [dbo].[DimSite]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie une instruction SQL qui utilise des paramètres pour générer la table de correspondance."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">select * from (select * from [dbo].[DimSite]) [refTable]
+where [refTable].[SiteCode] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de connexion utilisé pour accéder au dataset de référence."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de cache de la table de correspondance."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie comment la transformation de recherche gère les lignes sans entrées correspondantes dans le jeu de données de référence."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le pourcentage du cache alloué aux lignes sans entrées correspondantes dans le dataset de référence."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 32 bits."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Utilisation maximale de la mémoire pour le cache de référence sur une plateforme 64 bits."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indique si les métadonnées sont à référencer en format XML."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="Site_PK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="GeographieSite_FK" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="SiteCode" dataType="DT_STR" length="5" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Site" dataType="DT_STR" length="20" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Spécifie la liste d'identificateurs de lignage se mappant aux paramètres utilisés dans la propriété SQLCommand par l'instruction SQL. Les entrées dans la liste sont séparées par des points-virgules."
+                  name="ParameterMap">#{Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[SiteCode]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Détermine si les clés dupliquées dans les données de référence doivent être traitées en tant qu'erreurs lorsque le mode Cache complet est utilisé."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Connections[OleDbConnection]"
+                  connectionManagerID="{F694C42B-B8A7-4799-8064-6EDDBCA19242}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DistrisysDW]"
+                  description="Gestionnaire de connexions utilisé pour accéder aux données de correspondance."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Inputs[Entrée de recherche]"
+                  name="Entrée de recherche">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Inputs[Entrée de recherche].Columns[SiteCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SiteCode"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB].Columns[SiteCode]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence sur laquelle une colonne se lie."
+                          name="JoinToReferenceColumn">SiteCode</property>
+                        <property
+                          dataType="System.Null"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Outputs[Sortie de recherche avec correspondance]"
+                  errorOrTruncationOperation="Recherche"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Sortie de recherche avec correspondance"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Outputs[Sortie de recherche avec correspondance].Columns[Site_FK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copie de colonnes"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Outputs[Sortie de recherche avec correspondance].Columns[Site_FK]"
+                      name="Site_FK"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Spécifie la colonne de la table de référence à partir de laquelle une colonne est copiée."
+                          name="CopyFromReferenceColumn">Site_PK</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Outputs[Sortie de recherche sans correspondance]"
+                  description="Sortie de recherche gérant les lignes sans entrées correspondantes dans le dataset de référence. Utilisez cette sortie lorsque la propriété NoMatchBehavior a la valeur « Envoyez les lignes sans entrées correspondantes dans la sortie sans correspondance »."
+                  exclusionGroup="1"
+                  name="Sortie de recherche sans correspondance"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Inputs[Entrée de recherche]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Outputs[Sortie d'erreur de recherche]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de recherche"
+                  synchronousInputId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Inputs[Entrée de recherche]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Outputs[Sortie d'erreur de recherche].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Outputs[Sortie d'erreur de recherche].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Sortie d'agrégation 1]"
+              endId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete.Inputs[Entrée de destination OLE DB]"
+              name="Sortie d'agrégation 1"
+              startId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Outputs[Sortie d'agrégation 1]" />
+            <path
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Sortie de colonne dérivée1]"
+              endId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Inputs[Entrée de recherche]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Nettoyage des chaines de caractères.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Sortie de colonne dérivée]"
+              endId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Sortie de recherche avec correspondance2]"
+              endId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Sortie de recherche avec correspondance3]"
+              endId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Sortie de recherche avec correspondance]"
+              endId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Multidiffusion.Inputs[Multidiffusion entrée 1]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Sortie de recherche avec correspondance1]"
+              endId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK.Inputs[Entrée de recherche]"
+              name="Sortie de recherche avec correspondance"
+              startId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK.Outputs[Sortie de recherche avec correspondance]" />
+            <path
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Sortie de source OLE DB]"
+              endId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Nettoyage des chaines de caractères.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de source OLE DB"
+              startId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Vers FactFacture]"
+              endId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue.Inputs[Entrée de colonne dérivée]"
+              name="Vers FactFacture"
+              startId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Multidiffusion.Outputs[Sortie de multidiffusion 3]" />
+            <path
+              refId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Vers FactFactureEntete]"
+              endId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client.Inputs[Entrée d'agrégation 1]"
+              name="Vers FactFactureEntete"
+              startId="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Multidiffusion.Outputs[Sortie de multidiffusion 1]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="sql11">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="233,44"
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete"
+          TopLeft="5.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Client_FK"
+          TopLeft="202.179245283019,287.084905660377" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Produit_FK"
+          TopLeft="201.160377358491,364.896226415094" />
+        <NodeLayout
+          Size="224,44"
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete"
+          TopLeft="312.254716981132,618.669811320755" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Multidiffusion"
+          TopLeft="199.198113207547,434.820754716981" />
+        <NodeLayout
+          Size="136,44"
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche Site_FK"
+          TopLeft="197.198113207547,219.160377358491" />
+        <NodeLayout
+          Size="155,44"
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Recherche DateFacturation_FK"
+          TopLeft="191.198113207547,148.292452830189" />
+        <NodeLayout
+          Size="315,44"
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Extraction des lignes de Distrisys SA Facture"
+          TopLeft="104.367924528302,5.5" />
+        <NodeLayout
+          Size="264,44"
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture"
+          TopLeft="5.5,622.858490566038" />
+        <NodeLayout
+          Size="235,44"
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Calculer la Marge et le PrixCatalogue"
+          TopLeft="18.4433962264151,553.877358490566" />
+        <NodeLayout
+          Size="220,44"
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Agrégation par Datefacturation, par Site et par Client"
+          TopLeft="310.179245283019,552.783018867925" />
+        <NodeLayout
+          Size="248,44"
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Nettoyage des chaines de caractères"
+          TopLeft="143.349056603774,76.3679245283019" />
+        <EdgeLayout
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Sortie de colonne dérivée1]"
+          TopLeft="267.160377358491,120.292452830189">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="1.39622641509433,28"
+              Start="0,0"
+              End="1.39622641509433,20.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14" />
+                  <mssgle:LineSegment
+                    End="1.39622641509433,14" />
+                  <mssgle:LineSegment
+                    End="1.39622641509433,20.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Sortie de colonne dérivée]"
+          TopLeft="135.72641509434,597.801886792453">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="1.54716981132076,25.0566037735849"
+              Start="0,0"
+              End="1.54716981132076,17.5566037735849">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.5283018867924" />
+                  <mssgle:LineSegment
+                    End="1.54716981132076,12.5283018867924" />
+                  <mssgle:LineSegment
+                    End="1.54716981132076,17.5566037735849" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Sortie d'agrégation 1]"
+          TopLeft="419.990566037736,596.707547169811">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="4.07547169811318,21.9622641509434"
+              Start="0,0"
+              End="4.07547169811318,14.4622641509434">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,10.9811320754717" />
+                  <mssgle:LineSegment
+                    End="4.07547169811318,10.9811320754717" />
+                  <mssgle:LineSegment
+                    End="4.07547169811318,14.4622641509434" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Vers FactFactureEntete]"
+          TopLeft="287.839622641509,478.745283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="132.150943396226,74.0377358490566"
+              Start="0,0"
+              End="132.150943396226,66.5377358490566">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.0943396226415" />
+                  <mssgle:LineSegment
+                    End="132.150943396226,33.0943396226415" />
+                  <mssgle:LineSegment
+                    End="132.150943396226,66.5377358490566" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Vers FactFacture]"
+          TopLeft="246.330188679245,478.745283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-110.603773584906,75.1320754716982"
+              Start="0,0"
+              End="-110.603773584906,67.6320754716982">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,41.0566037735849" />
+                  <mssgle:LineSegment
+                    End="-110.603773584906,41.0566037735849" />
+                  <mssgle:LineSegment
+                    End="-110.603773584906,67.6320754716982" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Sortie de source OLE DB]"
+          TopLeft="261.61320754717,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="5.54716981132077,26.9433962264151"
+              Start="0,0"
+              End="5.54716981132077,19.4433962264151">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.4716981132075" />
+                  <mssgle:LineSegment
+                    End="5.54716981132077,13.4716981132075" />
+                  <mssgle:LineSegment
+                    End="5.54716981132077,19.4433962264151" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Sortie de recherche avec correspondance3]"
+          TopLeft="268.556603773585,192.216981132075">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-3.47169811320754,26.9433962264151"
+              Start="0,0"
+              End="-3.47169811320754,19.4433962264151">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.4716981132075" />
+                  <mssgle:LineSegment
+                    End="-3.47169811320754,13.4716981132075" />
+                  <mssgle:LineSegment
+                    End="-3.47169811320754,19.4433962264151" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-92.4128607753538,18.4716981132075,181.3540234375,9.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Sortie de recherche avec correspondance2]"
+          TopLeft="270.066037735849,331.009433962264">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-1.01886792452831,33.8867924528302"
+              Start="0,0"
+              End="-1.01886792452831,26.3867924528302">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.9433962264151" />
+                  <mssgle:LineSegment
+                    End="-1.01886792452831,16.9433962264151" />
+                  <mssgle:LineSegment
+                    End="-1.01886792452831,26.3867924528302" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.1864456810142,21.9433962264151,181.3540234375,9.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Sortie de recherche avec correspondance1]"
+          TopLeft="265.084905660377,263.084905660377">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="4.98113207547169,24"
+              Start="0,0"
+              End="4.98113207547169,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12" />
+                  <mssgle:LineSegment
+                    End="4.98113207547169,12" />
+                  <mssgle:LineSegment
+                    End="4.98113207547169,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-88.1864456810142,17,181.3540234375,9.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete.Paths[Sortie de recherche avec correspondance]"
+          TopLeft="269.047169811321,408.820754716981">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-1.96226415094338,26"
+              Start="0,0"
+              End="-1.96226415094338,18.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.9811320754717" />
+                  <mssgle:LineSegment
+                    End="-1.96226415094338,12.9811320754717" />
+                  <mssgle:LineSegment
+                    End="-1.96226415094338,18.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-91.6581437942217,17.9811320754717,181.3540234375,9.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFactureEntete">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement de DistrisysDW FactFacture et FactFactureEntete\Chargement de DistrisysDW FactFacture">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

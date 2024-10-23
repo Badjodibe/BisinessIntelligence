@@ -1,0 +1,624 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/28/2010 3:18:57 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SERVER1"
+  DTS:CreatorName="CONTOSO\Administrateur"
+  DTS:DTSID="{A652CF8D-1767-4286-89EB-73C1430151CD}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="SA_Produit"
+  DTS:PackageType="5"
+  DTS:VersionBuild="4"
+  DTS:VersionGUID="{182B5CAF-36EF-410B-A841-104FD5EBB873}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[DistrisysERP_SiegeSocial]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{E5585C5B-F7E2-4CE7-B7FD-93403578AD70}"
+      DTS:ObjectName="DistrisysERP_SiegeSocial">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=serveur1;Initial Catalog=DistrisysERP_SiegeSocial;Provider=SQLOLEDB.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-SA_Produit-{E5585C5B-F7E2-4CE7-B7FD-93403578AD70}server1\r2.DistrisysERP_SiegeSocial;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Copier Produit de Source vers DistrisysSA"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{EB661520-0D0E-4789-AE9F-EF943F1ABBB0}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Copier Produit de Source vers DistrisysSA"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Chargement dans DistrisysSA Produit"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande. Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Produit]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données de caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données. Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Connections[OleDbConnection]"
+                  connectionManagerID="{ED2C929D-4F5E-4D0C-AE54-2117EEBDE057}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DistrisysSA]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].Columns[ProduitCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ProduitCode"
+                      externalMetadataColumnId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].ExternalColumns[ProduitCode]"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[ProduitCode]" />
+                    <inputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].Columns[ProduitNom]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="ProduitNom"
+                      externalMetadataColumnId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].ExternalColumns[ProduitNom]"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[ProduitNom]" />
+                    <inputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].Columns[SousFamilleCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SousFamilleCode"
+                      externalMetadataColumnId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].ExternalColumns[SousFamilleCode]"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[SousFamilleCode]" />
+                    <inputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].Columns[SousFamilleNom]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SousFamilleNom"
+                      externalMetadataColumnId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].ExternalColumns[SousFamilleNom]"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[SousFamilleNom]" />
+                    <inputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].Columns[FamilleCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="FamilleCode"
+                      externalMetadataColumnId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].ExternalColumns[FamilleCode]"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[FamilleCode]" />
+                    <inputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].Columns[FamilleNom]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="FamilleNom"
+                      externalMetadataColumnId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].ExternalColumns[FamilleNom]"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[FamilleNom]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].ExternalColumns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ProduitCode" />
+                    <externalMetadataColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].ExternalColumns[ProduitNom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="ProduitNom" />
+                    <externalMetadataColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].ExternalColumns[SousFamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SousFamilleCode" />
+                    <externalMetadataColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].ExternalColumns[SousFamilleNom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="SousFamilleNom" />
+                    <externalMetadataColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].ExternalColumns[FamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="FamilleCode" />
+                    <externalMetadataColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB].ExternalColumns[FamilleNom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="FamilleNom" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Extraction de Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande. Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">SELECT     dbo.Produit.Code AS ProduitCode, dbo.Produit.Nom AS ProduitNom, dbo.SousFamille.Code AS SousFamilleCode, dbo.SousFamille.Nom AS SousFamilleNom, 
+                      dbo.Famille.Code AS FamilleCode, dbo.Famille.Nom AS FamilleNom
+FROM         dbo.Produit INNER JOIN
+                      dbo.SousFamille ON dbo.Produit.SousFamille_ID = dbo.SousFamille.SousFamille_ID INNER JOIN
+                      dbo.Famille ON dbo.SousFamille.Famille_ID = dbo.Famille.Famille_ID</property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données de caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[DistrisysERP_SiegeSocial]"
+                  connectionManagerRefId="Package.ConnectionManagers[DistrisysERP_SiegeSocial]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].ExternalColumns[ProduitCode]"
+                      length="10"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[ProduitCode]"
+                      name="ProduitCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[ProduitNom]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].ExternalColumns[ProduitNom]"
+                      length="50"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[ProduitNom]"
+                      name="ProduitNom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[SousFamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].ExternalColumns[SousFamilleCode]"
+                      length="10"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[SousFamilleCode]"
+                      name="SousFamilleCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[SousFamilleNom]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].ExternalColumns[SousFamilleNom]"
+                      length="50"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[SousFamilleNom]"
+                      name="SousFamilleNom"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[FamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].ExternalColumns[FamilleCode]"
+                      length="10"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[FamilleCode]"
+                      name="FamilleCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[FamilleNom]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].ExternalColumns[FamilleNom]"
+                      length="50"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].Columns[FamilleNom]"
+                      name="FamilleNom"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].ExternalColumns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ProduitCode" />
+                    <externalMetadataColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].ExternalColumns[ProduitNom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="ProduitNom" />
+                    <externalMetadataColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].ExternalColumns[SousFamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SousFamilleCode" />
+                    <externalMetadataColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].ExternalColumns[SousFamilleNom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SousFamilleNom" />
+                    <externalMetadataColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].ExternalColumns[FamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="FamilleCode" />
+                    <externalMetadataColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB].ExternalColumns[FamilleNom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="FamilleNom" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie d'erreur de source OLE DB].Columns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie d'erreur de source OLE DB].Columns[ProduitCode]"
+                      name="ProduitCode" />
+                    <outputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie d'erreur de source OLE DB].Columns[ProduitNom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie d'erreur de source OLE DB].Columns[ProduitNom]"
+                      name="ProduitNom" />
+                    <outputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie d'erreur de source OLE DB].Columns[SousFamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie d'erreur de source OLE DB].Columns[SousFamilleCode]"
+                      name="SousFamilleCode" />
+                    <outputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie d'erreur de source OLE DB].Columns[SousFamilleNom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie d'erreur de source OLE DB].Columns[SousFamilleNom]"
+                      name="SousFamilleNom" />
+                    <outputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie d'erreur de source OLE DB].Columns[FamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie d'erreur de source OLE DB].Columns[FamilleCode]"
+                      name="FamilleCode" />
+                    <outputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie d'erreur de source OLE DB].Columns[FamilleNom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie d'erreur de source OLE DB].Columns[FamilleNom]"
+                      name="FamilleNom" />
+                    <outputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Copier Produit de Source vers DistrisysSA.Paths[Sortie de source OLE DB]"
+              endId="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit.Inputs[Entrée de destination OLE DB]"
+              name="Sortie de source OLE DB"
+              startId="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source.Outputs[Sortie de source OLE DB]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Supprimer toutes les lignes de DistrisysSA Produit"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:Description="Tâche d'exécution de requêtes SQL"
+      DTS:DTSID="{2072894D-5730-41B6-8406-05048CF26766}"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Supprimer toutes les lignes de DistrisysSA Produit"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; Microsoft SQL Server 2008 R2; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{ED2C929D-4F5E-4D0C-AE54-2117EEBDE057}"
+          SQLTask:BypassPrepare="False"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE Produit" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Contrainte]"
+      DTS:CreationName=""
+      DTS:DTSID="{F08D772E-0F0C-4EA2-9D48-E1574125B4D9}"
+      DTS:From="Package\Supprimer toutes les lignes de DistrisysSA Produit"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Contrainte"
+      DTS:To="Package\Copier Produit de Source vers DistrisysSA" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="sql11">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="262,44"
+          Id="Package\Copier Produit de Source vers DistrisysSA"
+          TopLeft="8.51886792452829,93.3490566037736" />
+        <NodeLayout
+          Size="265,44"
+          Id="Package\Supprimer toutes les lignes de DistrisysSA Produit"
+          TopLeft="5.5,5.5" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Contrainte]"
+          TopLeft="137.764150943396,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="1.54716981132074,43.9245283018868"
+              Start="0,0"
+              End="1.54716981132074,36.4245283018868">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.9622641509434" />
+                  <mssgle:LineSegment
+                    End="1.54716981132074,21.9622641509434" />
+                  <mssgle:LineSegment
+                    End="1.54716981132074,36.4245283018868" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Copier Produit de Source vers DistrisysSA">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="241,44"
+          Id="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="230,44"
+          Id="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit"
+          TopLeft="5.5,112.330188679245" />
+        <EdgeLayout
+          Id="Package\Copier Produit de Source vers DistrisysSA.Paths[Sortie de source OLE DB]"
+          TopLeft="125.801886792453,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{x:Null}"
+              EndConnector="-5.50943396226413,62.9056603773585"
+              Start="0,0"
+              End="-5.50943396226413,55.4056603773585">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,31.4339622641509" />
+                  <mssgle:LineSegment
+                    End="-5.50943396226413,31.4339622641509" />
+                  <mssgle:LineSegment
+                    End="-5.50943396226413,55.4056603773585" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Copier Produit de Source vers DistrisysSA\Chargement dans DistrisysSA Produit">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Copier Produit de Source vers DistrisysSA\Extraction de Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

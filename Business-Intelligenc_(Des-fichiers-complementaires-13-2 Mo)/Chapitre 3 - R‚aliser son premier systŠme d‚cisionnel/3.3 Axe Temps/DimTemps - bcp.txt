@@ -1,0 +1,6 @@
+
+bcp DistrisysDW.dbo.DimTemps out "DimTemps.csv" -T -c -t";" -S"SERVEUR1" -R
+bcp DistrisysDW.dbo.DimTemps in "DimTemps.csv" -T -c -t";" -S"SERVEUR1" -R
+
+
+J'ai été obligé de mettre le -R pour charger les dates en JJ/MM/AAAA et pas MM/JJ/AAAA ....

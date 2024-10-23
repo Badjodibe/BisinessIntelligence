@@ -1,0 +1,82 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>DistrisysOLAP</Database>
+    <Server>SERVEUR1</Server>
+    <ConnectionString>DataSource=SERVEUR1;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>VYjKoGYFj4hGFhPIE3qkAQAfvic=12/07/2012 15:02:4012/07/2012 15:02:40</TimeStamp>
+        <ID>
+          <String>Distrisys DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>aACGGYDAkALqZsbqj64ZlSnovjs=12/07/2012 15:17:1212/07/2012 15:17:12</TimeStamp>
+        <ID>
+          <String>Distrisys DW</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>iXUczJVTDMOHrMC9NUctmpRfHhk=22/08/2012 23:27:0902/08/2012 22:06:34</TimeStamp>
+        <ID>
+          <String>Client</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>aG+7j6tC2D5Gi+aL8WUhf+1c97E=02/08/2012 21:49:3802/08/2012 21:49:38</TimeStamp>
+        <ID>
+          <String>Produit</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>hejQkWJJ7XdXWuUhm+In4b3U7JA=13/07/2012 12:35:0213/07/2012 12:35:02</TimeStamp>
+        <ID>
+          <String>Temps</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>PThgBAfHQhlnciFBMUVQkTKqshw=02/08/2012 22:06:5202/08/2012 22:06:52</TimeStamp>
+        <ID>
+          <String>Site</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>3EZd+i6dSS0nUHC2ga3EX/EYRrA=12/08/2012 11:29:0812/08/2012 11:29:08cDsHG9W8cL1b7Impkhg/Vp/cYIY=12/07/2012 15:23:2612/07/2012 15:23:26</TimeStamp>
+        <ID>
+          <String>Distrisys</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>2c0gq7dFufRQFTkaJZoyDRGAwrc=12/07/2012 14:50:1012/07/2012 14:50:10</TimeStamp>
+      <ID>
+        <String>DistrisysOLAP</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2012-08-22T21:27:13.246667Z</LastDeployed>
+</DeploymentSnapshot>

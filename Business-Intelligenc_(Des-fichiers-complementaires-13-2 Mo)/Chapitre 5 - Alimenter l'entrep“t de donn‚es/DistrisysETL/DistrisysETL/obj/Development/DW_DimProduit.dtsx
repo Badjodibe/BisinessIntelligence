@@ -1,0 +1,2566 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/28/2010 3:04:17 PM"
+  DTS:CreationName="SSIS.Package.3"
+  DTS:CreatorComputerName="SERVER1"
+  DTS:CreatorName="CONTOSO\Administrateur"
+  DTS:DTSID="{789EB14E-032A-4181-8350-75DBFE50B036}"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="DW_DimProduit"
+  DTS:PackageType="5"
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{F6AD8A39-40E7-495A-A68F-4BC83F50A36D}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit"
+      DTS:CreationName="SSIS.Pipeline.3"
+      DTS:Description="Tâche de flux de données"
+      DTS:DTSID="{F31F33C7-2CB4-46B5-AA38-2E1E2BB6A167}"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Chargement des nouvelles lignes et des modifications de DimProduit"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server v10; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          BLOBTempStoragePath=""
+          bufferTempStoragePath=""
+          version="1">
+          <components>
+            <component
+              refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              contactInfo="Destination OLE DB;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;4"
+              description="Destination OLE DB"
+              name="Chargement des nouveaux Produits"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande. Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[DimProduit]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données de caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs fournies pour les colonnes d'identité seront copiées à la destination. Si la valeur est définie à False, les valeurs des colonnes d'identité seront générées automatiquement à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les colonnes contenant la valeur NULL auront cette valeur NULL copiée à la destination. Si la valeur est définie à False, les colonnes contenant la valeur NULL auront leurs valeurs par défaut insérées à la destination. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie les options à utiliser avec le chargement rapide. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadOptions">TABLOCK</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie quand les validations sont émises pendant l'insertion des données. Une valeur égale à 0 spécifie qu'une validation sera émise à la fin de l'insertion des données. Ne s'applique que si le chargement rapide est activé."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Connections[OleDbConnection]"
+                  connectionManagerID="{F694C42B-B8A7-4799-8064-6EDDBCA19242}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DistrisysDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB]"
+                  errorOrTruncationOperation="Insérer"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de destination OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].Columns[ProduitCodeSA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ProduitCodeSA"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].ExternalColumns[ProduitCode]"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitCodeSA]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].Columns[ProduitSA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="ProduitSA"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].ExternalColumns[Produit]"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitSA]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].Columns[SousFamilleCodeSA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SousFamilleCodeSA"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].ExternalColumns[SousFamilleCode]"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[SousFamilleCodeSA]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].Columns[SousFamilleSA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="SousFamilleSA"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].ExternalColumns[SousFamille]"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[SousFamilleSA]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].Columns[FamilleCodeSA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="FamilleCodeSA"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].ExternalColumns[FamilleCode]"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleCodeSA]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].Columns[FamilleSA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="FamilleSA"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].ExternalColumns[Famille]"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleSA]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].ExternalColumns[Produit_PK]"
+                      dataType="i4"
+                      name="Produit_PK" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].ExternalColumns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ProduitCode" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].ExternalColumns[Produit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Produit" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].ExternalColumns[SousFamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SousFamilleCode" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].ExternalColumns[SousFamille]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="SousFamille" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].ExternalColumns[FamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="FamilleCode" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].ExternalColumns[Famille]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Famille" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].ExternalColumns[Valide]"
+                      dataType="bool"
+                      name="Valide" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].ExternalColumns[AuditFluxAjout_FK]"
+                      dataType="i4"
+                      name="AuditFluxAjout_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB].ExternalColumns[AuditFluxModification_FK]"
+                      dataType="i4"
+                      name="AuditFluxModification_FK" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Outputs[Sortie d'erreur de destination OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de destination OLE DB"
+                  synchronousInputId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Outputs[Sortie d'erreur de destination OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              contactInfo="Colonne dérivée;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Met à jour les valeurs de colonne au moyen d'expressions."
+              name="Epurer les chaines de caractères"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères.Inputs[Entrée de colonne dérivée]"
+                  description="Entrée de la transformation de colonnes dérivées"
+                  name="Entrée de colonne dérivée">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères.Inputs[Entrée de colonne dérivée].Columns[ProduitCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ProduitCode"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[ProduitCode]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[TRIM](#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[ProduitCode]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(ProduitCode)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères.Inputs[Entrée de colonne dérivée].Columns[SousFamilleCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SousFamilleCode"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[SousFamilleCode]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[TRIM](#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[SousFamilleCode]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(SousFamilleCode)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères.Inputs[Entrée de colonne dérivée].Columns[FamilleCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="FamilleCode"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[FamilleCode]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[TRIM](#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[FamilleCode]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(FamilleCode)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères.Inputs[Entrée de colonne dérivée].Columns[Produit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Produit"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[Produit]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[TRIM](#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[Produit]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(Produit)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères.Inputs[Entrée de colonne dérivée].Columns[SousFamille]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="SousFamille"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[SousFamille]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[TRIM](#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[SousFamille]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(SousFamille)</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères.Inputs[Entrée de colonne dérivée].Columns[Famille]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Famille"
+                      errorOrTruncationOperation="Calcul"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[Famille]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression de colonne dérivée"
+                          name="Expression">[TRIM](#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[Famille]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Expression claire de colonne dérivée"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(Famille)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères.Outputs[Sortie de colonne dérivée]"
+                  description="Sortie par défaut de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  name="Sortie de colonne dérivée"
+                  synchronousInputId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères.Inputs[Entrée de colonne dérivée]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères.Outputs[Sortie d'erreur de colonne dérivée]"
+                  description="Sortie d'erreur de la transformation de colonnes dérivées"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de colonne dérivée"
+                  synchronousInputId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères.Inputs[Entrée de colonne dérivée]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères.Outputs[Sortie d'erreur de colonne dérivée].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Extraction de DistrisysDW DimProduit"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande. Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[DimProduit]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données de caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Connections[OleDbConnection]"
+                  connectionManagerID="{F694C42B-B8A7-4799-8064-6EDDBCA19242}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DistrisysDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[Produit_PK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[Produit_PK]"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[Produit_PK]"
+                      name="Produit_PK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[ProduitCode]"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[ProduitCode]"
+                      name="ProduitCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[Produit]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[Produit]"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[Produit]"
+                      name="Produit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[SousFamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[SousFamilleCode]"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[SousFamilleCode]"
+                      name="SousFamilleCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[SousFamille]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[SousFamille]"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[SousFamille]"
+                      name="SousFamille"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[FamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[FamilleCode]"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[FamilleCode]"
+                      name="FamilleCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[Famille]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[Famille]"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[Famille]"
+                      name="Famille"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[Valide]"
+                      dataType="bool"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[Valide]"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[Valide]"
+                      name="Valide"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[AuditFluxAjout_FK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[AuditFluxAjout_FK]"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[AuditFluxAjout_FK]"
+                      name="AuditFluxAjout_FK"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[AuditFluxModification_FK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[AuditFluxModification_FK]"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[AuditFluxModification_FK]"
+                      name="AuditFluxModification_FK"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[Produit_PK]"
+                      dataType="i4"
+                      name="Produit_PK" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ProduitCode" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[Produit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Produit" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[SousFamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SousFamilleCode" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[SousFamille]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="SousFamille" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[FamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="FamilleCode" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[Famille]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Famille" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[Valide]"
+                      dataType="bool"
+                      name="Valide" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[AuditFluxAjout_FK]"
+                      dataType="i4"
+                      name="AuditFluxAjout_FK" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].ExternalColumns[AuditFluxModification_FK]"
+                      dataType="i4"
+                      name="AuditFluxModification_FK" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[Produit_PK]"
+                      dataType="i4"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[Produit_PK]"
+                      name="Produit_PK" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[ProduitCode]"
+                      name="ProduitCode" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[Produit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[Produit]"
+                      name="Produit" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[SousFamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[SousFamilleCode]"
+                      name="SousFamilleCode" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[SousFamille]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[SousFamille]"
+                      name="SousFamille" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[FamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[FamilleCode]"
+                      name="FamilleCode" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[Famille]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[Famille]"
+                      name="Famille" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[Valide]"
+                      dataType="bool"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[Valide]"
+                      name="Valide" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[AuditFluxAjout_FK]"
+                      dataType="i4"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[AuditFluxAjout_FK]"
+                      name="AuditFluxAjout_FK" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[AuditFluxModification_FK]"
+                      dataType="i4"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[AuditFluxModification_FK]"
+                      name="AuditFluxModification_FK" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              contactInfo="Source OLE DB;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;7"
+              description="Source OLE DB"
+              name="Extraction de DistrisysSA Produit"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande. Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowset">[dbo].[Produit]</property>
+                <property
+                  dataType="System.String"
+                  description="Spécifie la variable contenant le nom de l'objet de base de données utilisé pour ouvrir un ensemble de lignes."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.String"
+                  description="Variable contenant la commande SQL à exécuter."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Force l'utilisation de la valeur de propriété DefaultCodePage lors de la description des données de caractères."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le mode utilisé pour accéder à la base de données."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="Mappages entre les paramètres de la commande SQL et les variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Connections[OleDbConnection]"
+                  connectionManagerID="{ED2C929D-4F5E-4D0C-AE54-2117EEBDE057}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DistrisysSA]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB]"
+                  name="Sortie de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].ExternalColumns[ProduitCode]"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[ProduitCode]"
+                      name="ProduitCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[Produit]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].ExternalColumns[ProduitNom]"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[Produit]"
+                      name="Produit"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[SousFamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].ExternalColumns[SousFamilleCode]"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[SousFamilleCode]"
+                      name="SousFamilleCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[SousFamille]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].ExternalColumns[SousFamilleNom]"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[SousFamille]"
+                      name="SousFamille"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[FamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].ExternalColumns[FamilleCode]"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[FamilleCode]"
+                      name="FamilleCode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[Famille]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].ExternalColumns[FamilleNom]"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[Famille]"
+                      name="Famille"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].ExternalColumns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="ProduitCode" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].ExternalColumns[ProduitNom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="ProduitNom" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].ExternalColumns[SousFamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="SousFamilleCode" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].ExternalColumns[SousFamilleNom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="SousFamilleNom" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].ExternalColumns[FamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="FamilleCode" />
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].ExternalColumns[FamilleNom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="FamilleNom" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie d'erreur de source OLE DB]"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de source OLE DB">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie d'erreur de source OLE DB].Columns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie d'erreur de source OLE DB].Columns[ProduitCode]"
+                      name="ProduitCode" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie d'erreur de source OLE DB].Columns[ProduitNom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie d'erreur de source OLE DB].Columns[ProduitNom]"
+                      name="ProduitNom" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie d'erreur de source OLE DB].Columns[SousFamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie d'erreur de source OLE DB].Columns[SousFamilleCode]"
+                      name="SousFamilleCode" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie d'erreur de source OLE DB].Columns[SousFamilleNom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie d'erreur de source OLE DB].Columns[SousFamilleNom]"
+                      name="SousFamilleNom" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie d'erreur de source OLE DB].Columns[FamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie d'erreur de source OLE DB].Columns[FamilleCode]"
+                      name="FamilleCode" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie d'erreur de source OLE DB].Columns[FamilleNom]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie d'erreur de source OLE DB].Columns[FamilleNom]"
+                      name="FamilleNom" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie d'erreur de source OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour"
+              componentClassID="{7F88F654-4E20-4D14-84F4-AF9C925D3087}"
+              contactInfo="Fractionnement conditionnel;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;0"
+              description="Évalue et redirige des lignes dans un dataset."
+              name="Identification des nouveaux produits et des produits à mettre à jour"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Inputs[Entrée de fractionnement conditionnel]"
+                  description="Entrée vers la transformation de fractionnement conditionnel"
+                  name="Entrée de fractionnement conditionnel">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Inputs[Entrée de fractionnement conditionnel].Columns[ProduitSA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="ProduitSA"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitSA]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Inputs[Entrée de fractionnement conditionnel].Columns[SousFamilleCodeSA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SousFamilleCodeSA"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[SousFamilleCodeSA]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Inputs[Entrée de fractionnement conditionnel].Columns[FamilleCodeSA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="FamilleCodeSA"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleCodeSA]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Inputs[Entrée de fractionnement conditionnel].Columns[FamilleSA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="FamilleSA"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleSA]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Inputs[Entrée de fractionnement conditionnel].Columns[ProduitCodeDW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ProduitCodeDW"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitCodeDW]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Inputs[Entrée de fractionnement conditionnel].Columns[ProduitDW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="ProduitDW"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitDW]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Inputs[Entrée de fractionnement conditionnel].Columns[SousFamilleCodeDW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SousFamilleCodeDW"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[SousFamilleCodeDW]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Inputs[Entrée de fractionnement conditionnel].Columns[FamilleCodeDW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="FamilleCodeDW"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleCodeDW]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Inputs[Entrée de fractionnement conditionnel].Columns[FamilleDW]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="FamilleDW"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleDW]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Outputs[Ajout]"
+                  description="Sortie 1 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Ajout"
+                  synchronousInputId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de lignage à la place des noms de colonnes."
+                      name="Expression">[ISNULL](#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitCodeDW]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ISNULL(ProduitCodeDW)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Outputs[Modification]"
+                  description="Sortie 2 de la transformation de fractionnement conditionnel"
+                  errorOrTruncationOperation="Calcul"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="Modification"
+                  synchronousInputId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Inputs[Entrée de fractionnement conditionnel]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie l'expression. Cette version d'expression utilise les identificateurs de lignage à la place des noms de colonnes."
+                      name="Expression">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitSA]} != #{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitDW]} || #{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[SousFamilleCodeSA]} != #{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[SousFamilleCodeDW]} || #{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleCodeSA]} != #{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleCodeDW]} || #{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleSA]} != #{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleDW]}</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Spécifie la version claire de l'expression. Cette version d'expression utilise les noms de colonnes."
+                      expressionType="Notify"
+                      name="FriendlyExpression">ProduitSA != ProduitDW || SousFamilleCodeSA != SousFamilleCodeDW || FamilleCodeSA != FamilleCodeDW || FamilleSA != FamilleDW</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Spécifie la position de la condition dans la liste des conditions que la transformation évalue. L'ordre d'évaluation se fait par ordre croissant de valeur."
+                      name="EvaluationOrder">1</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Outputs[Aucune modification]"
+                  description="Sortie par défaut de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  name="Aucune modification"
+                  synchronousInputId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Inputs[Entrée de fractionnement conditionnel]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Outputs[Sortie d'erreur de fractionnement conditionnel]"
+                  description="Sortie d'erreur de la transformation de fractionnement conditionnel"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de fractionnement conditionnel"
+                  synchronousInputId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Inputs[Entrée de fractionnement conditionnel]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Outputs[Sortie d'erreur de fractionnement conditionnel].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche"
+              componentClassID="{14D43A4F-D7BD-489D-829E-6DE35750CFE4}"
+              contactInfo="Jointure de fusion;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Fusionne les données de deux datasets au moyen d'une jointure."
+              name="Jointure de fusion externe à gauche"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le type de jointure à effectuer."
+                  name="JoinType"
+                  typeConverter="JoinType">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre de colonnes dans la clé de tri."
+                  name="NumKeyColumns">1</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si les valeurs NULL sont traitées comme valeurs égales."
+                  name="TreatNullsAsEqual">true</property>
+                <property
+                  dataType="System.Int32"
+                  description="Indique le nombre maximal de mémoires tampons demandées par entrée avant blocage."
+                  name="MaxBuffersPerInput">5</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée gauche de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée gauche de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée gauche de jointure de fusion].Columns[ProduitCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ProduitCode"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[ProduitCode]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée gauche de jointure de fusion].Columns[Produit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Produit"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[Produit]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée gauche de jointure de fusion].Columns[SousFamilleCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SousFamilleCode"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[SousFamilleCode]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée gauche de jointure de fusion].Columns[SousFamille]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="SousFamille"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[SousFamille]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée gauche de jointure de fusion].Columns[FamilleCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="FamilleCode"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[FamilleCode]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée gauche de jointure de fusion].Columns[Famille]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Famille"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[Famille]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+                <input
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée droite de jointure de fusion]"
+                  hasSideEffects="true"
+                  name="Entrée droite de jointure de fusion">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée droite de jointure de fusion].Columns[ProduitCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ProduitCode"
+                      cachedSortKeyPosition="1"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[ProduitCode]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée droite de jointure de fusion].Columns[Produit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Produit"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[Produit]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée droite de jointure de fusion].Columns[SousFamilleCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SousFamilleCode"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[SousFamilleCode]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée droite de jointure de fusion].Columns[SousFamille]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="SousFamille"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[SousFamille]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée droite de jointure de fusion].Columns[FamilleCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="FamilleCode"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[FamilleCode]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée droite de jointure de fusion].Columns[Famille]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Famille"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[Famille]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion]"
+                  isSorted="true"
+                  name="Sortie de jointure de fusion">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitCodeSA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitCodeSA]"
+                      name="ProduitCodeSA"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée gauche de jointure de fusion].Columns[ProduitCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitSA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitSA]"
+                      name="ProduitSA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée gauche de jointure de fusion].Columns[Produit]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[SousFamilleCodeSA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[SousFamilleCodeSA]"
+                      name="SousFamilleCodeSA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée gauche de jointure de fusion].Columns[SousFamilleCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[SousFamilleSA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[SousFamilleSA]"
+                      name="SousFamilleSA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée gauche de jointure de fusion].Columns[SousFamille]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleCodeSA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleCodeSA]"
+                      name="FamilleCodeSA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée gauche de jointure de fusion].Columns[FamilleCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleSA]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleSA]"
+                      name="FamilleSA">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée gauche de jointure de fusion].Columns[Famille]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitCodeDW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitCodeDW]"
+                      name="ProduitCodeDW">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée droite de jointure de fusion].Columns[ProduitCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitDW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitDW]"
+                      name="ProduitDW">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée droite de jointure de fusion].Columns[Produit]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[SousFamilleCodeDW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[SousFamilleCodeDW]"
+                      name="SousFamilleCodeDW">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée droite de jointure de fusion].Columns[SousFamilleCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[SousFamilleDW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[SousFamilleDW]"
+                      name="SousFamilleDW">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée droite de jointure de fusion].Columns[SousFamille]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleCodeDW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleCodeDW]"
+                      name="FamilleCodeDW">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée droite de jointure de fusion].Columns[FamilleCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleDW]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleDW]"
+                      name="FamilleDW">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Colonne d'entrée associée à cette colonne de sortie"
+                          name="InputColumnID">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée droite de jointure de fusion].Columns[Famille]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés"
+              componentClassID="{93FFEC66-CBC8-4C7F-9C6A-CB1C17A7567D}"
+              contactInfo="Commande OLE DB;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;2"
+              description="Exécute une commande SQL pour chaque ligne d'un dataset."
+              name="Mise à jour des produits modifiés"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Nombre de secondes avant l'expiration d'une commande. Une valeur égale à 0 indique un délai d'expiration infini."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Commande SQL à exécuter."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">UPDATE [DimProduit]
+   SET [Produit] = ?
+      ,[SousFamilleCode] = ?
+      ,[SousFamille] = ?
+      ,[FamilleCode] = ?
+      ,[Famille] = ?
+ WHERE [ProduitCode] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie la page de codes de la colonne à utiliser lorsque les informations de page de codes ne sont pas disponibles à partir de la source de données."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Connections[OleDbConnection]"
+                  connectionManagerID="{F694C42B-B8A7-4799-8064-6EDDBCA19242}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[DistrisysDW]"
+                  description="Connexion OLE DB en cours d'exécution utilisée pour accéder à la base de données."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB]"
+                  errorOrTruncationOperation="Exécution de commande"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Entrée de commande OLE DB">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].Columns[ProduitSA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="ProduitSA"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitSA]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].Columns[SousFamilleCodeSA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SousFamilleCodeSA"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[SousFamilleCodeSA]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].Columns[SousFamilleSA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="SousFamilleSA"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[SousFamilleSA]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].Columns[FamilleCodeSA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="FamilleCodeSA"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleCodeSA]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].Columns[FamilleSA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="FamilleSA"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_4]"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[FamilleSA]" />
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].Columns[ProduitCodeSA]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ProduitCodeSA"
+                      cachedSortKeyPosition="1"
+                      externalMetadataColumnId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_5]"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion].Columns[ProduitCodeSA]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_0]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_0">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre. Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_1]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Param_1">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre. Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_2]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_2">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre. Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_3]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Param_3">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre. Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_4]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      name="Param_4">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre. Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB].ExternalColumns[Param_5]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="Param_5">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Informations de paramètre. Correspond aux valeurs DBPARAMFLAGSENUM OLE DB."
+                          name="DBParamInfoFlags">1</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Outputs[Sortie de commande OLE DB]"
+                  exclusionGroup="1"
+                  name="Sortie de commande OLE DB"
+                  synchronousInputId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Outputs[Sortie d'erreur de commande OLE DB]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Sortie d'erreur de commande OLE DB"
+                  synchronousInputId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Outputs[Sortie d'erreur de commande OLE DB].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW"
+              componentClassID="{5B1A3FF5-D366-4D75-AD1F-F19A36FCBEDB}"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données."
+              name="Trier par ProduitCode DW"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Inputs[Entrée de tri].Columns[Produit_PK]"
+                      cachedDataType="i4"
+                      cachedName="Produit_PK"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[Produit_PK]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données de caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Inputs[Entrée de tri].Columns[ProduitCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ProduitCode"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[ProduitCode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données de caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Inputs[Entrée de tri].Columns[Produit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Produit"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[Produit]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données de caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Inputs[Entrée de tri].Columns[SousFamilleCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SousFamilleCode"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[SousFamilleCode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données de caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Inputs[Entrée de tri].Columns[SousFamille]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="SousFamille"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[SousFamille]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données de caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Inputs[Entrée de tri].Columns[FamilleCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="FamilleCode"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[FamilleCode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données de caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Inputs[Entrée de tri].Columns[Famille]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Famille"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[Famille]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données de caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[Produit_PK]"
+                      dataType="i4"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[Produit_PK]"
+                      name="Produit_PK">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[Produit_PK]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[ProduitCode]"
+                      name="ProduitCode"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[ProduitCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[Produit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[Produit]"
+                      name="Produit">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[Produit]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[SousFamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[SousFamilleCode]"
+                      name="SousFamilleCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[SousFamilleCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[SousFamille]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[SousFamille]"
+                      name="SousFamille">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[SousFamille]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[FamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[FamilleCode]"
+                      name="FamilleCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[FamilleCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[Famille]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri].Columns[Famille]"
+                      name="Famille">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB].Columns[Famille]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA"
+              componentClassID="{5B1A3FF5-D366-4D75-AD1F-F19A36FCBEDB}"
+              contactInfo="Trier;Microsoft Corporation; Microsoft SqlServer v10; (C) Microsoft Corporation; Tous droits réservés; http://www.microsoft.com/sql/support;1"
+              description="Trie les données."
+              name="Trier par ProduitCode SA"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Indique si la transformation de tri supprime les lignes comportant des valeurs de tri en double."
+                  name="EliminateDuplicates">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Spécifie le nombre maximal de threads à utiliser pour le tri."
+                  expressionType="Notify"
+                  name="MaximumThreads">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Inputs[Entrée de tri]"
+                  name="Entrée de tri">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Inputs[Entrée de tri].Columns[ProduitCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="ProduitCode"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[ProduitCode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données de caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">1</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Inputs[Entrée de tri].Columns[Produit]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Produit"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[Produit]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données de caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Inputs[Entrée de tri].Columns[SousFamilleCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="SousFamilleCode"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[SousFamilleCode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données de caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Inputs[Entrée de tri].Columns[SousFamille]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="SousFamille"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[SousFamille]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données de caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Inputs[Entrée de tri].Columns[FamilleCode]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="FamilleCode"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[FamilleCode]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données de caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Inputs[Entrée de tri].Columns[Famille]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="20"
+                      cachedName="Famille"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[Famille]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie les options de comparaison pour les données de caractères."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Spécifie l'ordre de tri de la colonne."
+                          name="NewSortKeyPosition">0</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri]"
+                  isSorted="true"
+                  name="Sortie de tri">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[ProduitCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[ProduitCode]"
+                      name="ProduitCode"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[ProduitCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[Produit]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[Produit]"
+                      name="Produit">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[Produit]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[SousFamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[SousFamilleCode]"
+                      name="SousFamilleCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[SousFamilleCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[SousFamille]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[SousFamille]"
+                      name="SousFamille">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[SousFamille]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[FamilleCode]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[FamilleCode]"
+                      name="FamilleCode">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[FamilleCode]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[Famille]"
+                      codePage="1252"
+                      dataType="str"
+                      length="20"
+                      lineageId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri].Columns[Famille]"
+                      name="Famille">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Spécifie l'identificateur de lignage de la colonne d'entrée associé à cette colonne de sortie."
+                          name="SortColumnId">#{Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB].Columns[Famille]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit.Paths[Ajout]"
+              endId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits.Inputs[Entrée de destination OLE DB]"
+              name="Ajout"
+              startId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Outputs[Ajout]" />
+            <path
+              refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit.Paths[Modification]"
+              endId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés.Inputs[Entrée de commande OLE DB]"
+              name="Modification"
+              startId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Outputs[Modification]" />
+            <path
+              refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit.Paths[Sortie de colonne dérivée]"
+              endId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Inputs[Entrée de tri]"
+              name="Sortie de colonne dérivée"
+              startId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères.Outputs[Sortie de colonne dérivée]" />
+            <path
+              refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit.Paths[Sortie de jointure de fusion]"
+              endId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour.Inputs[Entrée de fractionnement conditionnel]"
+              name="Sortie de jointure de fusion"
+              startId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Outputs[Sortie de jointure de fusion]" />
+            <path
+              refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit.Paths[Sortie de source OLE DB1]"
+              endId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères.Inputs[Entrée de colonne dérivée]"
+              name="Sortie de source OLE DB"
+              startId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit.Paths[Sortie de source OLE DB]"
+              endId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Inputs[Entrée de tri]"
+              name="Sortie de source OLE DB"
+              startId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit.Outputs[Sortie de source OLE DB]" />
+            <path
+              refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit.Paths[Sortie de tri1]"
+              endId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée droite de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW.Outputs[Sortie de tri]" />
+            <path
+              refId="Package\Chargement des nouvelles lignes et des modifications de DimProduit.Paths[Sortie de tri]"
+              endId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche.Inputs[Entrée gauche de jointure de fusion]"
+              name="Sortie de tri"
+              startId="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA.Outputs[Sortie de tri]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--Cette section CDATA contient des informations sur la disposition du package. Elle comprend des informations telles que les coordonnées (x,y), la largeur et la hauteur.-->
+<!--Si vous modifiez manuellement cette section et commettez une erreur, vous pouvez la supprimer. -->
+<!--Le package pourra toujours se charger normalement, mais les informations de disposition précédente seront perdues et le concepteur réorganisera automatiquement les éléments sur l'aire de conception.-->
+<Objects
+  Version="sql11">
+  <!--Chaque nœud ci-dessous contiendra des propriétés qui n'affectent pas le comportement d'exécution.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="276,44"
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit"
+          TopLeft="7.5,4.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Chargement des nouvelles lignes et des modifications de DimProduit">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph" xmlns:mssge="clr-namespace:Microsoft.SqlServer.Graph.Extended;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+        <NodeLayout
+          Size="206,44"
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Jointure de fusion externe à gauche"
+          TopLeft="212.254716981132,213.160377358491" />
+        <NodeLayout
+          Size="243,44"
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysSA Produit"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="183,44"
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode SA"
+          TopLeft="106.405660377358,138.292452830189" />
+        <NodeLayout
+          Size="234,44"
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Mise à jour des produits modifiés"
+          TopLeft="417.952830188679,362.405660377358" />
+        <NodeLayout
+          Size="248,44"
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit"
+          TopLeft="389.952830188679,7.4622641509434" />
+        <NodeLayout
+          Size="261,44"
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Identification des nouveaux produits et des produits à mettre à jour"
+          TopLeft="181.625786163522,285.084905660377" />
+        <NodeLayout
+          Size="188,44"
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Trier par ProduitCode DW"
+          TopLeft="345.990566037736,141.27358490566" />
+        <NodeLayout
+          Size="252,44"
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits"
+          TopLeft="108.443396226415,362.971698113208" />
+        <NodeLayout
+          Size="208,44"
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Epurer les chaines de caractères"
+          TopLeft="48.4811320754717,75.5754716981132" />
+        <EdgeLayout
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit.Paths[Sortie de tri1]"
+          TopLeft="439.839622641509,185.198113207547">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-83.245283018868,27.9622641509434"
+              Start="0,0"
+              End="-83.245283018868,20.4622641509434">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.9622641509434" />
+                  <mssgle:LineSegment
+                    End="-83.245283018868,13.9622641509434" />
+                  <mssgle:LineSegment
+                    End="-83.245283018868,20.4622641509434" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit.Paths[Sortie de tri]"
+          TopLeft="197.764150943396,182.216981132075">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="75.811320754717,30.9433962264151"
+              Start="0,0"
+              End="75.811320754717,23.4433962264151">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.4716981132076" />
+                  <mssgle:LineSegment
+                    End="75.811320754717,15.4716981132076" />
+                  <mssgle:LineSegment
+                    End="75.811320754717,23.4433962264151" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit.Paths[Sortie de source OLE DB1]"
+          TopLeft="126.783018867925,49.4245283018868">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="25.5094339622641,26.1509433962264"
+              Start="0,0"
+              End="25.5094339622641,18.6509433962264">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.0566037735849" />
+                  <mssgle:LineSegment
+                    End="25.5094339622641,13.0566037735849" />
+                  <mssgle:LineSegment
+                    End="25.5094339622641,18.6509433962264" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit.Paths[Sortie de source OLE DB]"
+          TopLeft="513.72641509434,51.3867924528302">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-73.8867924528302,89.8867924528302"
+              Start="0,0"
+              End="-73.8867924528302,82.3867924528302">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,44.9433962264151" />
+                  <mssgle:LineSegment
+                    End="-73.8867924528302,44.9433962264151" />
+                  <mssgle:LineSegment
+                    End="-73.8867924528302,82.3867924528302" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit.Paths[Sortie de jointure de fusion]"
+          TopLeft="313.690251572327,257.160377358491">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.9245283018868"
+              Start="0,0"
+              End="0,20.4245283018868">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.4245283018868" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit.Paths[Sortie de colonne dérivée]"
+          TopLeft="152.292452830189,119.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="45.4716981132076,18.7924528301887"
+              Start="0,0"
+              End="45.4716981132076,11.2924528301887">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.39622641509433" />
+                  <mssgle:LineSegment
+                    End="45.4716981132076,9.39622641509433" />
+                  <mssgle:LineSegment
+                    End="45.4716981132076,11.2924528301887" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit.Paths[Modification]"
+          TopLeft="354.292452830189,329.084905660377">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="180.66037735849,33.3207547169811"
+              Start="0,0"
+              End="180.66037735849,25.8207547169811">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.45011424219345" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.45011424219345"
+                    Point2="0,13.4501142421934"
+                    Point3="4,13.4501142421934" />
+                  <mssgle:LineSegment
+                    End="176.66037735849,13.4501142421934" />
+                  <mssgle:CubicBezierSegment
+                    Point1="176.66037735849,13.4501142421934"
+                    Point2="180.66037735849,13.4501142421934"
+                    Point3="180.66037735849,17.4501142421934" />
+                  <mssgle:LineSegment
+                    End="180.66037735849,25.8207547169811" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="64.5482550854952,18.4501142421934,51.5638671875,7.7978515625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Chargement des nouvelles lignes et des modifications de DimProduit.Paths[Ajout]"
+          TopLeft="269.959119496855,329.084905660377">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-35.5157232704403,33.8867924528302"
+              Start="0,0"
+              End="-35.5157232704403,26.3867924528302">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.67859862909368" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.67859862909368"
+                    Point2="0,13.6785986290937"
+                    Point3="-4,13.6785986290937" />
+                  <mssgle:LineSegment
+                    End="-31.5157232704403,13.6785986290937" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-31.5157232704403,13.6785986290937"
+                    Point2="-35.5157232704403,13.6785986290937"
+                    Point3="-35.5157232704403,17.6785986290937" />
+                  <mssgle:LineSegment
+                    End="-35.5157232704403,26.3867924528302" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-29.3623147602201,18.6785986290937,23.20890625,9.384765625"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <AnnotationLayout
+          Text="DimProduit.Prodduit_PK doit être en incrémentation automatique&#xA;afin de laisser SQL Server gérer l'identifiant de clé technique"
+          ParentId="Package\Chargement des nouvelles lignes et des modifications de DimProduit"
+          Size="397,53"
+          Id="8d434364-4f94-406b-b99e-95faa677a117"
+          TopLeft="6.6320754716981,414.858490566038">
+          <AnnotationLayout.FontInfo>
+            <mssge:FontInfo
+              Family="Tahoma"
+              Size="11.25"
+              Color="#FF080000">
+              <mssge:FontInfo.TextDecorations>
+                <av:TextDecorationCollection />
+              </mssge:FontInfo.TextDecorations>
+            </mssge:FontInfo>
+          </AnnotationLayout.FontInfo>
+        </AnnotationLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Extraction de DistrisysDW DimProduit">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Chargement des nouvelles lignes et des modifications de DimProduit\Chargement des nouveaux Produits">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
